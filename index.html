@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Harry Potter RPG</title>
 </head>
+
 <body>
-    <div id="left">
-        <button class="characterLeft" id="harry" value="Harry" health="125" attackPower="8" counterAttack="12">Harry's Button</button>
-        <button class="characterLeft" id="hermione" value="Hermione" health="175" attackPower="17" counterAttack="10">Hermione's Button</button>
-        <button class="characterLeft" id="ron" value="Ron" health="100" attackPower="4" counterAttack="8">Ron's Button</button>
-        <button class="characterLeft" id="snape" value="Snape" health="200" attackPower="10" counterAttack="12">Snape's Button</button>
-        <button class="characterLeft" id="dumbledor" value="Dumbledor" health="300" attackPower="12" counterAttack="18">Dumbledor's Button</button>
-    </div>
-    <div id="middle">
-        <button id="deul">Deul!</button>
-    </div>
-    <div id="right">
-        <button class="characterRight" id="voldemort" value="Voldemort" health="225" attackPower="12" counterAttack="14">Voldemort's Button</button>
-        <button class="characterRight" id="belatrix" value="Belatrix" health="160" attackPower="8" counterAttack="5">Belatrix's Button</button>
-        <button class="characterRight" id="lucius" value="Lucius" health="120" attackPower="6" counterAttack="4">Lucius's Button</button>
-        <button class="characterRight" id="wormtail" value="Wormtail" health="110" attackPower="6" counterAttack="8">Wormtail's Button</button>
-        <button class="characterRight" id="tom" value="Tom" health="215" attackPower="10" counterAttack="16">Tom's Button</button>
+    <div id="container">
+        <div id="left">
+            <button class="characterLeft" id="harry" value="Harry" health="125" attackPower="8" counterAttack="12">Harry's Button</button>
+            <button class="characterLeft" id="hermione" value="Hermione" health="175" attackPower="17" counterAttack="10">Hermione's Button</button>
+            <button class="characterLeft" id="ron" value="Ron" health="100" attackPower="4" counterAttack="8">Ron's Button</button>
+            <button class="characterLeft" id="snape" value="Snape" health="200" attackPower="10" counterAttack="12">Snape's Button</button>
+            <button class="characterLeft" id="dumbledor" value="Dumbledor" health="300" attackPower="12" counterAttack="18">Dumbledor's Button</button>
+        </div>
+        <div id="middle">
+            <h2 id="instructions"></h2>
+            <!-- <h2 id="choosePlayer">Click an image to choose your player!</h2> -->
+            <!-- <h2 id="chooseOpponent">Click an image to choose your opponent!</h2> -->
+            <!-- <h2 id="chooseOpponent">Click an image to choose your next opponent!</h2> -->
+            <!-- <h2> VS </h2> -->
+            <button id="deul">Deul!</button>
+        </div>
+        <div id="right">
+            <button class="characterRight" id="voldemort" value="Voldemort" health="225" attackPower="12" counterAttack="14">Voldemort's Button</button>
+            <button class="characterRight" id="belatrix" value="Belatrix" health="160" attackPower="8" counterAttack="5">Belatrix's Button</button>
+            <button class="characterRight" id="lucius" value="Lucius" health="120" attackPower="6" counterAttack="4">Lucius's Button</button>
+            <button class="characterRight" id="wormtail" value="Wormtail" health="110" attackPower="6" counterAttack="8">Wormtail's Button</button>
+            <button class="characterRight" id="tom" value="Tom" health="215" attackPower="10" counterAttack="16">Tom's Button</button>
+        </div>
     </div>
 </body>
 <script src="assets/javascript/game.js"></script>
+
 </html>

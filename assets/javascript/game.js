@@ -11,19 +11,21 @@ var deulClickCounter = 0;
 
 // grab different buttons and add on click events
 $(".characterLeft").on("click", function () {
-    // once use choses a side other characters in that side of the screen are removed
+    // once user choses a side other characters in that side of the screen are removed
     // and user's character becomes central image
-    if (!isCharacterChosen || !isDefenderChosen) {
-        if (isCharacterChosen) {
-            defender = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
-            isDefenderChosen = true;
-        } else {
+    if (!player.length || !defender.length) {
+        if (!player.length) {
             player = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
             isCharacterChosen = true;
+            // prompt user to choose an initial enemy 
+            $("#instructions").text("Click an image to choose your opponent!");
+        } else {
+            defender = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
+            isCharacterChosen = true;
         }
-        console.log(player);
-        console.log(defender);
-        // prompt user to chose an initial enemy 
+        console.log(player + " player");
+        console.log(defender + " defender");
+        
 
     }
 });
@@ -31,18 +33,19 @@ $(".characterLeft").on("click", function () {
 $(".characterRight").on("click", function () {
     // once use choses a side other characters in that side of the screen are removed
     // and user's character becomes central image
-    if (!isCharacterChosen || !isDefenderChosen) {
-        if (isCharacterChosen) {
-            defender = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
-            isDefenderChosen = true;
-        } else {
+    if (!player.length || !defender.length) {
+        if (!player.length) {
             player = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
             isCharacterChosen = true;
+            // prompt user to choose an initial enemy 
+            $("#instructions").text("Click an image to choose your opponent!");
+        } else {
+            defender = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
+            isCharacterChosen = true;
         }
-        console.log(player);
-        console.log(defender);
-
-        // prompt user to chose an initial enemy 
+        console.log(player + " player");
+        console.log(defender + " defender");
+        
 
     }
 });
@@ -67,8 +70,20 @@ $("#deul").on("click", function () {
     defender[0] = defender[0] - (player[1] * deulClickCounter);
     player[0] = player[0] - defender[2];
 
-    console.log(defender);
-    console.log(player);
+    if (defender[0] <= 0) {
+        defender = [];
+        //promt user to choose next enemy
+        $("#instructions").text("Click an image to choose your next opponent!");
+    }
+
+    if (player[0] <= 0) {
+        player = [];
+        // show game over page
+        $("#container").html("<h1>You lost :(</h1>");
+    }
+
+    console.log(player + " player");
+    console.log(defender + " defender");
 
 });
 
