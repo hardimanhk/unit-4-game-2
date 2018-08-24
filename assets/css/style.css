@@ -40,3 +40,23 @@ body {
 .defender {
     width: 100%;
 }
+
+#left-hp-score {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    font-size: 150px;
+    color: white;
+}
+
+#right-hp-score {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    font-size: 150px;
+    color: white;
+}
