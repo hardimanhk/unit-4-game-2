@@ -1,0 +1,42 @@
+body {
+    background: url("../images/hp-background.png");
+}
+
+#main-title {
+    color: white;
+    text-align: center;
+}
+
+#instructions {
+    color: white;
+    text-align: center;
+}
+
+.character {
+    padding: 0px;
+    width: 100%;
+}
+
+.characterPhoto {
+    width: 100%;
+}
+
+.characterLeft-bottom {
+    margin-left: 50px;
+    margin-right: 0px;
+    margin-top: 30px;
+    padding: 0px;
+    width: 62%;
+}
+
+.characterPhoto-bottomRow {
+    width: 100%;
+}
+
+.player {
+    width: 100%;
+}
+
+.defender {
+    width: 100%;
+}

@@ -5,33 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Harry Potter RPG</title>
 </head>
 
 <body>
-    <div id="container">
-        <div id="left">
-            <button class="characterLeft" id="harry" value="Harry" health="125" attackPower="8" counterAttack="12">Harry's Button</button>
-            <button class="characterLeft" id="hermione" value="Hermione" health="175" attackPower="17" counterAttack="10">Hermione's Button</button>
-            <button class="characterLeft" id="ron" value="Ron" health="100" attackPower="4" counterAttack="8">Ron's Button</button>
-            <button class="characterLeft" id="snape" value="Snape" health="200" attackPower="10" counterAttack="12">Snape's Button</button>
-            <button class="characterLeft" id="dumbledor" value="Dumbledor" health="300" attackPower="12" counterAttack="18">Dumbledor's Button</button>
-        </div>
-        <div id="middle">
-            <h2 id="instructions"></h2>
-            <!-- <h2 id="choosePlayer">Click an image to choose your player!</h2> -->
-            <!-- <h2 id="chooseOpponent">Click an image to choose your opponent!</h2> -->
-            <!-- <h2 id="chooseOpponent">Click an image to choose your next opponent!</h2> -->
-            <!-- <h2> VS </h2> -->
-            <button id="deul">Deul!</button>
-        </div>
-        <div id="right">
-            <button class="characterRight" id="voldemort" value="Voldemort" health="225" attackPower="12" counterAttack="14">Voldemort's Button</button>
-            <button class="characterRight" id="belatrix" value="Belatrix" health="160" attackPower="8" counterAttack="5">Belatrix's Button</button>
-            <button class="characterRight" id="lucius" value="Lucius" health="120" attackPower="6" counterAttack="4">Lucius's Button</button>
-            <button class="characterRight" id="wormtail" value="Wormtail" health="110" attackPower="6" counterAttack="8">Wormtail's Button</button>
-            <button class="characterRight" id="tom" value="Tom" health="215" attackPower="10" counterAttack="16">Tom's Button</button>
+    <div class="container" id="container">
+        <h1 id="main-title">Harry Potter RPG Game!</h1>
+        <h2 id="instructions">Click an image to choose your player!</h2>
+        <div class="row">
+            <div id="left" class="col-lg-5">
+                <div class="row">
+                    <div class="col-lg-12" id="left-player"></div>
+                </div>
+                <div class="row" id="top-left-players">
+                    <div class="col-lg-4">
+                        <button class="character" id="harry" value="Harry" health="125" attackPower="8" counterAttack="12">
+                            <img class="characterPhoto" src="assets/images/harry-potter.png" alt="Harry">
+                        </button>
+                    </div>
+                    <div class="col-lg-4">
+                        <button class="character" id="hermione" value="Hermione" health="175" attackPower="17" counterAttack="10">
+                            <img class="characterPhoto" src="assets/images/hermione.jpg" alt="Hermione">
+                        </button>
+                    </div>
+                    <div class="col-lg-4">
+                        <button class="character" id="ron" value="Ron" health="100" attackPower="4" counterAttack="8">
+                            <img class="characterPhoto" src="assets/images/ron-weasley.jpg" alt="Ron">
+                        </button>
+                    </div>
+                </div>
+                <div class="row" id="bottom-left-players">
+                    <div class="col-lg-6">
+                        <button class="character characterLeft-bottom" id="snape" value="Snape" health="200" attackPower="10" counterAttack="12">
+                            <img class="characterPhoto-bottomRow" src="assets/images/snape.png" alt="Snape">
+                        </button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="character characterLeft-bottom" id="dumbledore" value="Dumbledore" health="300" attackPower="12" counterAttack="18">
+                            <img class="characterPhoto-bottomRow" src="assets/images/dumbledore.png" alt="Dumbledore">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="middle" class="col-lg-2">
+                <button id="duel">Duel!</button>
+            </div>
+            <div id="right" class="col-lg-5">
+                <div class="row">
+                    <div class="col-lg-12" id="right-player"></div>
+                </div>
+                <div class="row" id="top-right-players">
+                    <div class="col-lg-4">
+                        <button class="character" id="voldemort" value="Voldemort" health="225" attackPower="12" counterAttack="14">
+                            <img class="characterPhoto" src="assets/images/voldemort.png" alt="Voldemort">
+                        </button>
+                    </div>
+                    <div class="col-lg-4">
+                        <button class="character" id="bellatrix" value="Bellatrix" health="160" attackPower="8" counterAttack="5">
+                            <img class="characterPhoto" src="assets/images/bellatrix.jpeg" alt="Bellatrix Lestrange">
+                        </button>
+                    </div>
+                    <div class="col-lg-4">
+                        <button class="character" id="lucius" value="Lucius" health="120" attackPower="6" counterAttack="4">
+                            <img class="characterPhoto" src="assets/images/lucius.jpg" alt="Lucius Malfoy">
+                        </button>
+                    </div>
+                </div>
+                <div class="row" id="bottom-right-players">
+                    <div class="col-lg-6">
+                        <button class="character characterLeft-bottom" id="wormtail" value="Wormtail" health="110" attackPower="6" counterAttack="8">
+                            <img class="characterPhoto-bottomRow" src="assets/images/wormtail.jpg" alt="Wormtail">
+                        </button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="character characterLeft-bottom" id="tom" value="Tom" health="215" attackPower="10" counterAttack="16">
+                            <img class="characterPhoto-bottomRow" src="assets/images/tom-riddle.jpg" alt="Tom Riddle">
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

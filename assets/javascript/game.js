@@ -3,25 +3,40 @@ var isCharacterChosen = false;
 var isDefenderChosen = false;
 var player = [];
 var defender = [];
-var deulClickCounter = 0;
+var duelClickCounter = 0;
+var currentHP = 0;
+var currentDefenderHP = 0;
 
 // Gryffindors vs. Slytherins 
 // Have player click a character's image to begin
 // images are buttons 
 
 // grab different buttons and add on click events
-$(".characterLeft").on("click", function () {
+$(".character").on("click", function () {
     // once user choses a side other characters in that side of the screen are removed
     // and user's character becomes central image
     if (!player.length || !defender.length) {
         if (!player.length) {
             player = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
             isCharacterChosen = true;
+            $(this).addClass("player");
+            $(this).removeClass("characterLeft-bottom");
+            $("#top-left-players").hide();
+            $("#bottom-left-players").hide();
+            $("#left-player").append($(this));
             // prompt user to choose an initial enemy 
             $("#instructions").text("Click an image to choose your opponent!");
         } else {
             defender = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
             isCharacterChosen = true;
+            $(this).addClass("defender");
+            $(this).removeClass("characterLeft-bottom");
+            $("#top-right-players").hide();
+            $("#bottom-right-players").hide();
+            $("#right-player").empty();
+            $("#right-player").append($(this));
+            $("#right-player").show();
+            $("#instructions").text("Click duel to battle!");
         }
         console.log(player + " player");
         console.log(defender + " defender");
@@ -30,28 +45,32 @@ $(".characterLeft").on("click", function () {
     }
 });
 
-$(".characterRight").on("click", function () {
-    // once use choses a side other characters in that side of the screen are removed
-    // and user's character becomes central image
-    if (!player.length || !defender.length) {
-        if (!player.length) {
-            player = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
-            isCharacterChosen = true;
-            // prompt user to choose an initial enemy 
-            $("#instructions").text("Click an image to choose your opponent!");
-        } else {
-            defender = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
-            isCharacterChosen = true;
-        }
-        console.log(player + " player");
-        console.log(defender + " defender");
+// $(".characterRight").on("click", function () {
+//     // once use choses a side other characters in that side of the screen are removed
+//     // and user's character becomes central image
+//     if (!player.length || !defender.length) {
+//         if (!player.length) {
+//             player = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
+//             isCharacterChosen = true;
+//             $(this).addClass("player");
+
+//             // prompt user to choose an initial enemy 
+//             $("#instructions").text("Click an image to choose your opponent!");
+//         } else {
+//             defender = [$(this).attr("health"), $(this).attr("attackPower"), $(this).attr("counterAttack")];
+//             isCharacterChosen = true;
+//             $(this).addClass("defender");
+//             $("#instructions").text("Click duel to battle!");
+//         }
+//         console.log(player + " player");
+//         console.log(defender + " defender");
         
 
-    }
-});
+//     }
+// });
 
 
-$("#deul").on("click", function () {
+$("#duel").on("click", function () {
     // duel: * The player will now be able to click the `duel` button.
     // Whenever the player clicks `duel`, their character damages the defender. 
     // The opponent will lose `HP` (health points). 
@@ -65,14 +84,17 @@ $("#deul").on("click", function () {
     // then function will subratct the opponent's counter attack from the player's HP
     // add the base to the player's attack power (6, 12, 18, 24, 30, etc)
     // display new HP values at the bottom of each character's picture
-    deulClickCounter++;
+    duelClickCounter++;
 
-    defender[0] = defender[0] - (player[1] * deulClickCounter);
+    defender[0] = defender[0] - (player[1] * duelClickCounter);
     player[0] = player[0] - defender[2];
 
     if (defender[0] <= 0) {
         defender = [];
         //promt user to choose next enemy
+        $("#right-player").hide();
+        $("#top-right-players").show();
+        $("#bottom-right-players").show();
         $("#instructions").text("Click an image to choose your next opponent!");
     }
 
@@ -80,6 +102,7 @@ $("#deul").on("click", function () {
         player = [];
         // show game over page
         $("#container").html("<h1>You lost :(</h1>");
+        // create play again button
     }
 
     console.log(player + " player");
