@@ -6,6 +6,7 @@ var duelClickCounter = 0;
 var currentHP = 0;
 var currentDefenderHP = 0;
 var leftOrRight = "";
+var defeats = 0;
 
 // Gryffindors vs. Slytherins 
 // Have player click a character's image to begin
@@ -119,6 +120,7 @@ $("#duel").on("click", function () {
 
 
     if (defender[0] <= 0) {
+        defeats++;
         defender = [];
         //promt user to choose next enemy
         if (playerIsLeft) {
@@ -141,6 +143,10 @@ $("#duel").on("click", function () {
         // show game over page
         $("#container").html("<h1>You lost :(</h1>");
         // create play again button
+    }
+
+    if (defeats === 5) {
+        $("#instructions").text("WINNER!");
     }
 
     console.log(player + " player");
